@@ -2,10 +2,12 @@ FROM tbcp/python:debian
 
 USER bootcamp
 
-RUN sudo python3 -m pip install --upgrade --user setuptools && \
-    sudo python3 -m pip uninstall ansible 2&> /dev/null && \
-    sudo python3 -m pip install --user ansible && \
-    sudo python3 -m pip install --user "molecule[ansible,docker,lint]" && \
-    sudo python3 -m pip install --user molecule-hetznercloud
+RUN pip3 install --upgrade --user setuptools
+
+RUN pip3 uninstall ansible 2&> /dev/null
+
+RUN pip3 install --user ansible && \
+    pip3 install --user "molecule[ansible,docker,lint]" && \
+    pip3 install --user molecule-hetznercloud
 
 # tbcp/ansible:debian
