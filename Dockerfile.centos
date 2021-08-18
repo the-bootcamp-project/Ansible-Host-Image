@@ -3,8 +3,9 @@ FROM tbcp/python:centos
 USER bootcamp
 
 RUN sudo python3 -m pip install --upgrade --user setuptools && \
-    sudo python3 -m pip uninstall ansible 2&> /dev/null && \
+    sudo python3 -m pip uninstall ansible && \
     sudo python3 -m pip install --user ansible && \
-    sudo python3 -m pip install --user "molecule[ansible,docker,lint]" molecule-hetznercloud
+    sudo python3 -m pip install --user "molecule[ansible,docker,lint]" && \
+    sudo python3 -m pip install --user molecule-hetznercloud
 
 # tbcp/ansible:centos
