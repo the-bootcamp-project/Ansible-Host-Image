@@ -2,6 +2,28 @@ FROM tbcp/python:debian
 
 USER bootcamp
 
+RUN sudo apt update && sudo apt upgrade -y && \
+    sudo apt install -y \
+        wget \
+        build-essential \
+        libncursesw5-dev \
+        libssl-dev \
+        libsqlite3-dev \
+        tk-dev \
+        libgdbm-dev \
+        libc6-dev \
+        libbz2-dev \
+        libffi-dev \
+        zlib1g-dev
+
+WORKDIR /tmp
+
+RUN wget https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz && tar -xf Python-3.9.6.tgz
+
+WORKDIR /tmp/Python-3.9.6
+
+RUN ./configure --enable-optimizations && make -j 2 && sudo make altinstall
+
 RUN pip3 install --upgrade --user setuptools
 
 RUN pip3 uninstall ansible 2&> /dev/null

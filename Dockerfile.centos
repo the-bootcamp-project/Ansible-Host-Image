@@ -2,6 +2,18 @@ FROM tbcp/python:centos
 
 USER bootcamp
 
+RUN sudo yum -y update && \
+    sudo yum -y groupinstall "Development Tools" && \
+    sudo yum -y install wget openssl-devel libffi-devel bzip2-devel
+
+WORKDIR /tmp
+
+RUN wget https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz && tar -xf Python-3.9.6.tgz
+
+WORKDIR /tmp/Python-3.9.6
+
+RUN ./configure --enable-optimizations && make -j 2 && sudo make altinstall
+
 RUN pip3 install --upgrade --user setuptools
 
 RUN pip3 uninstall ansible 2&> /dev/null
