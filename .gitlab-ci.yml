@@ -25,3 +25,7 @@ docker-build-centos:
     - docker push "index.docker.io/tbcp/ansible:centos"
   only:
     - main
+
+# git submodule add -b main --name docs https://gitlab.com/the-bootcamp-project/containers/docs.git docs
+# git submodule update init
+# git submodule update --recursive --remote --merge
