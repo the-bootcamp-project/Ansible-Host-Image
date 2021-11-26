@@ -1,6 +1,6 @@
 <a href="https://bootcamp-project.com/" target="_blank"><img src="https://bootcamp-project.com/tbcp.svg" align="right" height="200" /></a>
 
-<h1 align="center">Run Ansible Host in Docker (Step-by-Step)</h1>
+# Run Ansible Host in Docker (Step-by-Step)
 
 <div align="center">
 <img src="https://img.shields.io/docker/v/tbcp/ansible?style=for-the-badge" />
